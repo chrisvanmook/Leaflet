@@ -4,6 +4,7 @@ import rollupGitVersion from 'rollup-plugin-git-version'
 import json from 'rollup-plugin-json'
 import gitRev from 'git-rev-sync'
 import pkg from '../package.json'
+import typescript from '@rollup/plugin-typescript'
 
 let {version} = pkg;
 let release;
@@ -55,6 +56,7 @@ export default {
 		}
 	],
 	plugins: [
+		typescript(),
 		release ? json() : rollupGitVersion()
 	]
 };
